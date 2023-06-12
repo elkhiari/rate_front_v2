@@ -48,5 +48,34 @@ const getAuthEc = async(pin) =>{
   }
 }
 
+const lockReq = async(token,id) =>{
+  try {
+    const response = await axios.put(`${process.env.REACT_APP_API_URL}/user/${id}`, {},{
+      headers: {
+        Authorization: `Bearer ${token}`,
+    }
+    } );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    throw error;  
+  }
+}
 
-export {Auth, addRate, getCount, getAuthEc};
+const getAllUsers = async(token) =>{
+  try {
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/`, {
+      headers: {
+          Authorization: `Bearer ${token}`,
+      }
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    throw error;  
+  }
+}
+
+
+
+export {Auth, addRate, getCount, getAuthEc, getAllUsers, lockReq};
