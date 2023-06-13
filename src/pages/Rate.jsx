@@ -36,13 +36,18 @@ function Rate() {
         }
     }
   return (
-    <div className='w-full min-h-screen '>
-            <div className='w-full h-20 flex justify-around items-center absolute'>
-                <img src={logo} className='w-16 h-16' />
-                <h1 className='text-2xl font-bold'>Alimara</h1>
+    <div className='min-h-screen container  mx-auto'>
+            <div className='w-full h-20 flex justify-around items-center fixed top-0 left-0'>
+               <div className='flex justify-around space-x-4 place-items-center'>
+                    <img src={logo} className='w-16 h-16' />
+                    <h1 className='text-2xl font-bold'>Al imara Shop</h1>
+               </div>
+               <div>
+
+               </div>
             </div>
         {ectoken ?<>
-        <div className='w-full min-h-screen  flex justify-around items-center p-2 md:px-24 dark:bg-gray-800'>
+        <div className='min-h-screen container  flex justify-around items-center p-2 md:px-24 dark:bg-gray-800  '>
             <div >
                 <BsEmojiAngryFill onClick={()=>handleShowNot("Très mauvais")} className='h-16 md:w-32  w-16 md:h-32  text-red-600 hover:scale-125 duration-200 cursor-pointer ease-linear' />
             </div>
@@ -57,18 +62,14 @@ function Rate() {
             </div>
         </div>
         {rate && 
-        <div className='w-full min-h-screen flex justify-center items-center absolute top-0 backdrop-blur-md duration-200'>
-            <div className='w-96 h-96  flex flex-col justify-center items-center'>
-               { (rate === "Mauvaise" || rate ===  "Très mauvais")?<BsEmojiDizzyFill className='h-16 md:w-32  w-16 md:h-32  text-red-600' />:<BsEmojiLaughingFill className='h-16 md:w-32  w-16 md:h-32  text-green-600' />}
-                <h1 className='text-2xl font-bold'>{(rate === "Mauvaise" || rate ===  "Très mauvais")? "Désolée" : "Merci"}</h1>
-                <h1 className='text-xl font-bold text-center'>Nous chercherons à améliorer constamment notre service</h1>
-            </div>
+        <div className='w-full  flex justify-center items-center absolute bottom-36 duration-200 left-0' >
+                <h1 className='text-xl font-bold text-center'>Merci pour votre visite</h1>
         </div>
         }
 
         </>:
         <div className='w-full min-h-screen  flex justify-around items-center p-2 md:px-24 dark:bg-gray-800'>
-            <div className='w-96 h-96  flex flex-col justify-center items-center'>
+            <div className=' flex flex-col justify-center items-center'>
                 <input type="text" onChange={(e)=>setPin(e.target.value)} placeholder="Entrez votre pin" className='w-full h-12 border-blue-500 border-2  px-2  outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50' />
                 {error && <h1 className='text-red-500 font-bold'>Pin incorrect</h1>}
                 <button onClick={handleGetAuth} className='w-full h-12 mt-2 bg-blue-500 hover:bg-blue-600  text-white font-bold'>Valider</button>
