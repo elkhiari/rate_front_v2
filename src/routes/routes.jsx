@@ -9,6 +9,7 @@ import Rate from '../pages/Rate'
 import Nav from '../components/Nav'
 import Error404 from '../pages/Error'
 import Users from '../pages/dashboard/Users'
+import Rateing from '../pages/dashboard/rate'
 
 function RouteApp() {
   const {token,role,user} = useContext(AuthContext);
@@ -27,6 +28,7 @@ function RouteApp() {
         {token && role &&
         <>
             <Route path="/dashboard" element={!token?<Navigate to="/login"/>:role === "admin"?<Home />:<NotV />}/>
+            <Route path="/dashboard/rate" element={!token?<Navigate to="/login"/>:role === "admin"?<Rateing />:<NotV />}/>
             <Route path="/dashboard/users" element={!token?<Navigate to="/login"/>:role === "admin"?<Users />:<Navigate to={"/dashboard"} />}/>
         </>
           }

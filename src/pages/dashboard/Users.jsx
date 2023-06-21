@@ -41,7 +41,7 @@ function Users() {
                 </figcaption>    
                     <div>
                         <button className='ml-10' onClick={()=>HandleLock(user._id)}>
-                            {user.rol !== 'admin'?
+                            {user.rol === 'admin'?
                             <AiTwotoneUnlock className="w-8 h-8 text-green-500 rounded-full bg-gray-100 p-1" />:
                             <AiTwotoneLock className="w-8 h-8 text-red-500 rounded-full bg-gray-100 p-1" />}
                         </button>

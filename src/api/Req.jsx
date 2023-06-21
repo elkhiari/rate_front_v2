@@ -77,5 +77,19 @@ const getAllUsers = async(token) =>{
 }
 
 
+const getAllRate = async(token) =>{
+  try {
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}/rate/`, {
+      headers: {
+          Authorization: `Bearer ${token}`,
+      }
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    throw error;  
+  }
+}
 
-export {Auth, addRate, getCount, getAuthEc, getAllUsers, lockReq};
+
+export {Auth, addRate, getCount, getAuthEc, getAllUsers, lockReq ,getAllRate};
