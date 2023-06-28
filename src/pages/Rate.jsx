@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import logo from './../asset/image/logo-300x300.png'
 import { BsEmojiAngryFill, BsEmojiDizzyFill, BsEmojiFrownFill, BsEmojiLaughingFill, BsFillEmojiHeartEyesFill } from "react-icons/bs";
 import { addRate,getAuthEc } from '../api/Req';
+import {TypingAnimation} from '../components/headerAnimation'
 
 function Rate() {
     const [ectoken,setEctoken] = useState(() => localStorage.getItem("ectoken") || null)
@@ -22,7 +23,7 @@ function Rate() {
        if (rate !== "") {
            setTimeout(() => {
                setRate("")
-           }, 6000);
+           }, 4000);
        }
     }, [rate])
 
@@ -36,36 +37,55 @@ function Rate() {
         }
     }
   return (
-    <div className='min-h-screen container  mx-auto'>
-            <div className='w-full h-20 flex justify-around items-center fixed top-0 left-0'>
-               <div className='flex justify-around space-x-4 place-items-center'>
+    <div className=' container mx-auto flex flex-col place-content-cente place-items-center  duration-150 overflow-hidden'>
+            <div className='w-full h-20 text-sm md:text-2xl flex justify-between container left-1/2 -translate-x-1/2  max-w-3xl px-4 md:px-0 fixed  top-0'>
+               <div className='flex w-full justify-start space-x-4 place-items-center'>
                     <img src={logo} className='w-16 h-16' />
-                    <h1 className='text-2xl font-bold'>Al imara Shop</h1>
+                    <h1 className=' font-bold'>Alimara</h1>
                </div>
-               <div>
-
+               <div className='flex w-full justify-end space-x-4 place-items-center'>
+                    <h1 className=' font-bold arabe'>العمارة</h1>
+                    <img src={logo} className='w-16 h-16' />
                </div>
+            <div>
+        </div>
             </div>
+         
+        
+    
         {ectoken ?<>
-        <div className='min-h-screen container  flex justify-around items-center p-2 md:px-24 dark:bg-gray-800  '>
-            <div >
-                <BsEmojiAngryFill onClick={()=>handleShowNot("Très mauvais")} className='h-16 md:w-32  w-16 md:h-32  text-red-600 hover:scale-125 duration-200 cursor-pointer ease-linear' />
+        <div className=' container min-h-screen  flex justify-around relative items-center p-2 lg:px-24 dark:bg-gray-800 overflow-hidden'>
+            <div className='w-full  flex justify-center items-center duration-200 absolute -translate-y-[150px]' >
+                    <p className='arabe md:text-2xl'>
+                    { rate ? "شكرا على زيارتكم" : "المرجو مساعدتنا لقياس مدى رضاكم وانطباعكم عن جودة خدماتنا"}
+                    </p>
+        </div>
+            <div  className='hover:scale-125 duration-200 cursor-pointer ease-linear flex place-items-center flex-col  '>
+                <p className='arabe'>سيء جدا</p> 
+                <BsEmojiAngryFill onClick={()=>handleShowNot("Très mauvais")} className='h-16 md:w-32  w-16 md:h-32  text-red-600' />
+                <p>Très mauvais</p> 
             </div>
-            <div>
-                <BsEmojiFrownFill onClick={()=>handleShowNot("Mauvaise")} className='h-16 md:w-32  w-16 md:h-32  text-orange-600 hover:scale-125 duration-200 cursor-pointer ease-linear' />
+            <div className='hover:scale-125 duration-200 cursor-pointer ease-linear flex place-items-center flex-col  '>
+                <p className='arabe'>سيء</p>
+                <BsEmojiFrownFill onClick={()=>handleShowNot("Mauvaise")} className='h-16 md:w-32  w-16 md:h-32  text-orange-600' />
+                <p >Mauvaise</p>
             </div>
-            <div>
-                <BsEmojiLaughingFill onClick={()=>handleShowNot("Bien")} className='h-16 md:w-32  w-16 md:h-32  text-blue-600 hover:scale-125 duration-200 cursor-pointer ease-linear' />
+            <div className='hover:scale-125 duration-200 cursor-pointer ease-linear flex place-items-center flex-col  '>
+                <p className='arabe'>حسن</p>
+                <BsEmojiLaughingFill onClick={()=>handleShowNot("Bien")} className='h-16 md:w-32  w-16 md:h-32  text-blue-600' />
+                <p >Bien</p>
             </div>
-            <div>
-                <BsFillEmojiHeartEyesFill onClick={()=>handleShowNot("Excellent")} className='h-16 md:w-32  w-16 md:h-32  text-green-600 hover:scale-125 duration-200 cursor-pointer ease-linear' />
+            <div className='hover:scale-125 duration-200 cursor-pointer ease-linear flex place-items-center flex-col  '>
+                <p className='arabe'>ممتاز</p>
+                <BsFillEmojiHeartEyesFill onClick={()=>handleShowNot("Excellent")} className='h-16 md:w-32  w-16 md:h-32  text-green-600' />
+                <p >Excellent</p>
             </div>
         </div>
-        {rate && 
-        <div className='w-full  flex justify-center items-center absolute bottom-36 duration-200 left-0' >
+        {/* {!rate && 
+        <div className='w-full  flex justify-center items-center  duration-200 ' >
                 <h1 className='text-xl font-bold text-center'>Merci pour votre visite</h1>
         </div>
-        }
+        } */}
 
         </>:
         <div className='w-full min-h-screen  flex justify-around items-center p-2 md:px-24 dark:bg-gray-800'>
