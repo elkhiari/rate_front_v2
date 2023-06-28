@@ -56,7 +56,7 @@ function Rate() {
         {ectoken ?<>
         <div className=' container min-h-screen  flex justify-around relative items-center p-2 lg:px-24 dark:bg-gray-800 overflow-hidden'>
             <div className='w-full  flex justify-center items-center duration-200 absolute -translate-y-[150px]' >
-                    <p className='arabe md:text-2xl'>
+                    <p className='arabe md:text-2xl text-center'>
                     { rate ? "شكرا على زيارتكم" : "المرجو مساعدتنا لقياس مدى رضاكم وانطباعكم عن جودة خدماتنا"}
                     </p>
         </div>
