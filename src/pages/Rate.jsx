@@ -37,7 +37,7 @@ function Rate() {
         }
     }
   return (
-    <div className=' container mx-auto flex flex-col place-content-cente place-items-center  duration-150 overflow-hidden'>
+    <div className=' container mx-auto min-h-screen flex flex-col place-content-cente justify-center  duration-150 overflow-hidden'>
             <div className='w-full h-20 text-sm md:text-2xl flex justify-between container left-1/2 -translate-x-1/2  max-w-3xl px-4 md:px-0 fixed  top-0'>
                <div className='flex w-full justify-start space-x-4 place-items-center'>
                     <img src={logo} className='w-16 h-16' />
@@ -54,12 +54,12 @@ function Rate() {
         
     
         {ectoken ?<>
-        <div className=' container min-h-screen  flex justify-around relative items-center p-2 lg:px-24 dark:bg-gray-800 overflow-hidden'>
-            <div className='w-full  flex justify-center items-center duration-200 absolute sm:-translate-y-[90px] md:-translate-y-[150px]' >
+            <div className='w-full  flex justify-center items-center duration-200' >
                     <p className='arabe md:text-2xl text-center'>
                     { rate ? "شكرا على زيارتكم" : "المرجو مساعدتنا لقياس مدى رضاكم وانطباعكم عن جودة خدماتنا"}
                     </p>
         </div>
+        <div className=' container flex justify-around relative items-center p-2 lg:px-24 dark:bg-gray-800 overflow-hidden'>
             <div  className='hover:scale-125 duration-200 cursor-pointer ease-linear flex place-items-center flex-col  '>
                 <p className='arabe'>سيء جدا</p> 
                 <BsEmojiAngryFill onClick={()=>handleShowNot("Très mauvais")} className='h-16 md:w-32  w-16 md:h-32  text-red-600' />
