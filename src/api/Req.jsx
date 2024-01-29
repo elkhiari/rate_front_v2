@@ -92,4 +92,18 @@ const getAllRate = async(token) =>{
 }
 
 
-export {Auth, addRate, getCount, getAuthEc, getAllUsers, lockReq ,getAllRate};
+const deleteAll = async (token) => {
+  try {
+    const response = await axios.delete(`${process.env.REACT_APP_API_URL}/rate/delete`, {
+      headers: {
+          Authorization: `Bearer ${token}`,
+      }
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
+export {Auth, addRate, getCount, getAuthEc, getAllUsers, lockReq ,getAllRate, deleteAll};
